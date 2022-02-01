@@ -676,3 +676,486 @@ Response result 200
 }
 ```
 
+### **Роли**
+#### **GET /roles**
+##### **Списки ролей пользователей**
+
+(СПИСОК МОЖЕТ ПОЛУЧИТЬ ТОЛЬКО АДМИНЫ)
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+      "id": 1,
+      "title": "GUEST",
+      "slug": "guest",
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
+```
+
+#### **GET /roles/<id>**
+##### **Получить роль пользователей по ID**
+
+(МОЖЕТ ПОЛУЧИТЬ ТОЛЬКО АДМИН)
+
+Response result 200
+```JSON
+{
+    "id": 1,
+    "title": "GUEST",
+    "slug": "guest",
+    "deleted_at": "2022-01-01 12:00:00",
+    "created_at": "2022-01-01 12:00:00",
+    "updated_at": "2022-01-01 12:00:00"
+}
+```
+#### **PUT /roles/<id>**
+##### **Редактировать роль пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "title": "GUEST",
+  "slug": "guest"
+}
+```
+
+Response result 200
+```JSON
+{
+    "id": 1,
+    "title": "GUEST",
+    "slug": "guest",
+    "deleted_at": "2022-01-01 12:00:00",
+    "created_at": "2022-01-01 12:00:00",
+    "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **DELETE /roles/<id>**
+##### **Удалить роль пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Response result 200
+```JSON
+{
+    "id": 1,
+    "title": "GUEST",
+    "slug": "guest",
+    "deleted_at": "2022-01-01 12:00:00",
+    "created_at": "2022-01-01 12:00:00",
+    "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **POST /roles/<id>**
+##### **Создать роль пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "title": "GUEST",
+  "slug": "guest"
+}
+```
+
+Response result 200
+```JSON
+{
+    "id": 1,
+    "title": "GUEST",
+    "slug": "guest",
+    "deleted_at": "2022-01-01 12:00:00",
+    "created_at": "2022-01-01 12:00:00",
+    "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+### **Исполнительные органы**
+#### **GET /contractors**
+##### **Список исполнительных органов**
+
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+      "id": 1,
+      "mnemonic_name": "mvd",
+      "title": "Министерство внутренних дел",
+      "description": "Министерство внутренних дел - контролирующий орган",
+      "responsible_person": "Петров В.В., старший лейтинант",
+      "image": "avatar.jpg",
+      "hash_tag": "#мвд",
+      "contact_phone": "0713333333",
+      "contact_email": "mvd@mvd.com",
+      "pre_controller_email": "mvd@mvd.com",
+      "telegram_chat_id": "-10000000001",
+      "public_website": "https://mvd.com",
+      "more_info": "На службе добра",
+      "type": "EXECUTIVE",
+      "schedule": [
+        {
+          "title": "Понедельник",
+          "day_index": "1",
+          "start_at": "09:00",
+          "end_at": "18:00",
+          "is_day_of": "Флаг выходного дня",
+          "description": "Только прием документов"
+        }
+      ],
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "is_active": true,
+      "generate_daily_report": true,
+      "need_inform_by_email": true,
+      "need_inform_by_sms": true,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
+}
+```
+
+#### **GET /contractors/<id>**
+##### **Получить данные об исполнительном органе по ID**
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [
+    {
+      "title": "Понедельник",
+      "day_index": "1",
+      "start_at": "09:00",
+      "end_at": "18:00",
+      "is_day_of": "Флаг выходного дня",
+      "description": "Только прием документов"
+    }
+  ],
+  "problem_categories": [
+    {
+      "id": 1,
+      "title": "Яма на дороге",
+      "mnemonic_name": "yama_na_doroge",
+      "hash_tag": "#дорожное_движение",
+      "icon": "https://test.com/123.jpg",
+      "rating": 10,
+      "is_active": true,
+      "is_visible": true,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+#### **PUT /contractors/<id>**
+##### **Редактировать данные об исполнительном органе по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [],
+  "problem_categories": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true
+}
+```
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [
+    {
+      "title": "Понедельник",
+      "day_index": "1",
+      "start_at": "09:00",
+      "end_at": "18:00",
+      "is_day_of": "Флаг выходного дня",
+      "description": "Только прием документов"
+    }
+  ],
+  "problem_categories": [
+    {
+      "id": 1,
+      "title": "Яма на дороге",
+      "mnemonic_name": "yama_na_doroge",
+      "hash_tag": "#дорожное_движение",
+      "icon": "https://test.com/123.jpg",
+      "rating": 10,
+      "is_active": true,
+      "is_visible": true,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **DELETE /roles/<id>**
+##### **Удалить роль пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [
+    {
+      "title": "Понедельник",
+      "day_index": "1",
+      "start_at": "09:00",
+      "end_at": "18:00",
+      "is_day_of": "Флаг выходного дня",
+      "description": "Только прием документов"
+    }
+  ],
+  "problem_categories": [
+    {
+      "id": 1,
+      "title": "Яма на дороге",
+      "mnemonic_name": "yama_na_doroge",
+      "hash_tag": "#дорожное_движение",
+      "icon": "https://test.com/123.jpg",
+      "rating": 10,
+      "is_active": true,
+      "is_visible": true,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **POST /roles/<id>**
+##### **Создать роль пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [],
+  "problem_categories": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true
+}
+```
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "mnemonic_name": "mvd",
+  "title": "Министерство внутренних дел",
+  "description": "Министерство внутренних дел - контролирующий орган",
+  "responsible_person": "Петров В.В., старший лейтинант",
+  "image": "avatar.jpg",
+  "hash_tag": "#мвд",
+  "contact_phone": "0713333333",
+  "contact_email": "mvd@mvd.com",
+  "pre_controller_email": "mvd@mvd.com",
+  "telegram_chat_id": "-10000000001",
+  "public_website": "https://mvd.com",
+  "more_info": "На службе добра",
+  "type": "EXECUTIVE",
+  "schedule": [
+    {
+      "title": "Понедельник",
+      "day_index": "1",
+      "start_at": "09:00",
+      "end_at": "18:00",
+      "is_day_of": "Флаг выходного дня",
+      "description": "Только прием документов"
+    }
+  ],
+  "problem_categories": [
+    {
+      "id": 1,
+      "title": "Яма на дороге",
+      "mnemonic_name": "yama_na_doroge",
+      "hash_tag": "#дорожное_движение",
+      "icon": "https://test.com/123.jpg",
+      "rating": 10,
+      "is_active": true,
+      "is_visible": true,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_active": true,
+  "generate_daily_report": true,
+  "need_inform_by_email": true,
+  "need_inform_by_sms": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```

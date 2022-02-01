@@ -4,9 +4,8 @@ import requests
 import urllib.parse
 import os
 
-main_chat_id = -1001519915986
 
-bot_token = '5288716322:AAEbURKhTivz0Z6NbGsOgiegR0P2C6F05IM'
+bot_token = 'UR_BOT_TOKEN'
 bot = telebot.TeleBot(bot_token)
 
 

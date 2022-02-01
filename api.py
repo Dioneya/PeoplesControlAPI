@@ -10,7 +10,7 @@ import jsonschema
 
 UPLOAD_FOLDER = './images/requests'
 
-DOMAIN_NAME = "http://164.92.215.12:8644"
+DOMAIN_NAME = "UR_DOMAIN_ADDRESS"
 IMAGE_FOLDER = './img'
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/hackaton'
