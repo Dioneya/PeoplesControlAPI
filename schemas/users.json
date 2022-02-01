@@ -1,0 +1,12 @@
+{
+    "register": {
+      "type": "object",
+      "properties": {
+        
+        "name": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "username": { "type": "string","pattern" : "(\\d{3})\\D*\\d{3}\\D*\\d{2}\\D*\\d{2}"},
+        "password": { "type": "string", "minLength": 8, "maxLength": 32 }
+      },
+      "required": [ "name", "username", "password" ]
+    }
+  }

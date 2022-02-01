@@ -1,0 +1,92 @@
+{
+    "contractor": {
+
+        "type": "object",
+        "properties": {
+            "mnemonic_name": {
+                "type": "string"
+            },
+            "title": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "responsible_person": {
+                "type": "string"
+            },
+            "image": {
+                "type": "string"
+            },
+            "hash_tag": {
+                "type": "string",
+                "pattern": "^#"
+            },
+            "contact_phone": {
+                "type": "string",
+                "pattern" : "(\\d{3})\\D*\\d{3}\\D*\\d{2}\\D*\\d{2}$"
+            },
+            "contact_email": {
+                "type": "string",
+                "format" : "email"
+            },
+            "pre_controller_email": {
+                "type": "string",
+                "format" : "email"
+            },
+            "telegram_chat_id": {
+                "type": "string",
+                "pattern" : "^\\d{10}$"
+            },
+            "public_website": {
+                "type": "string",
+                "format": "uri"
+            },
+            "more_info": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "enum" : ["EXECUTIVE","SUPERVISING"]
+            },
+            "schedule": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title" : {"type":"string"},
+                        "day_index" : {"type":"string"},
+                        "start_at" : {"type":"string","format":"time"},
+                        "end_at" : {"type": "string", "format":"time"},
+                        "is_day_of" : {"type":"boolean"},
+                        "description" : {"type":"string"}
+                    },
+                    "required":["title","day_index","start_at","end_at","is_day_of","description"]
+                }
+            },
+            "problem_categories": {
+                "type": "array",
+                "items": {
+                    "type": "integer"
+                }
+            },
+            "is_active": {
+                "type": "boolean"
+            },
+            "generate_daily_report": {
+                "type": "boolean"
+            },
+            "need_inform_by_email": {
+                "type": "boolean"
+            },
+            "need_inform_by_sms": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "mnemonic_name",
+            "title",
+            "problem_categories"
+        ]
+    }
+}
