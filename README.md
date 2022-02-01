@@ -272,7 +272,7 @@ Response result 200
 ```
 
 
-#### **GET /profiles/<id> (token required)**
+#### **GET /profiles/(id) (token required)**
 ##### **Получить профиль по ID профиля**
 ДОСТУП МОЖЕТ ЛИШЬ ПОЛУЧИТЬ ВЛАДЕЛЕЦ ПРОФИЛЯ ИЛИ АДМИНЫ
 
@@ -465,7 +465,7 @@ Response result 200
   "updated_at": "2022-01-01 12:00:00"
 }
 ```
-#### **PUT /profiles/<id> (token required)**
+#### **PUT /profiles/(id) (token required)**
 ##### **Изменить профиль по ID профиля**
 ДОСТУП МОЖЕТ ЛИШЬ ПОЛУЧИТЬ ВЛАДЕЛЕЦ ПРОФИЛЯ ИЛИ АДМИНЫ
 
@@ -578,7 +578,7 @@ Response result 200
 }
 ```
 
-#### **DELETE /profiles/<id> (token required)**
+#### **DELETE /profiles/(id) (token required)**
 ##### **Удалить профиль пользователя по id токена**
 ДОСТУП МОЖЕТ ПОЛЧИТЬ ТОЛЬКО ВЛАДЕЮЩИЙ ПРОФИЛЕМ ПОЛЬЗОВАТЕЛЬ ИЛИ АДМИНЫ
 
@@ -714,7 +714,7 @@ Response result 200
   ]
 ```
 
-#### **GET /roles/<id>**
+#### **GET /roles/(id)**
 ##### **Получить роль пользователей по ID**
 
 (МОЖЕТ ПОЛУЧИТЬ ТОЛЬКО АДМИН)
@@ -730,7 +730,7 @@ Response result 200
     "updated_at": "2022-01-01 12:00:00"
 }
 ```
-#### **PUT /roles/<id>**
+#### **PUT /roles/(id)**
 ##### **Редактировать роль пользователя по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -755,7 +755,7 @@ Response result 200
 }
 ```
 
-#### **DELETE /roles/<id>**
+#### **DELETE /roles/(id)**
 ##### **Удалить роль пользователя по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -875,7 +875,7 @@ Response result 200
 }
 ```
 
-#### **GET /contractors/<id>**
+#### **GET /contractors/(id)**
 ##### **Получить данные об исполнительном органе по ID**
 
 Response result 200
@@ -929,7 +929,7 @@ Response result 200
   "updated_at": "2022-01-01 12:00:00"
 }
 ```
-#### **PUT /contractors/<id>**
+#### **PUT /contractors/(id)**
 ##### **Редактировать данные об исполнительном органе по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -1016,7 +1016,7 @@ Response result 200
 }
 ```
 
-#### **DELETE /contractors/<id>**
+#### **DELETE /contractors/(id)**
 ##### **Удалить исполнительного органа по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -1202,7 +1202,7 @@ Response result 200
   ]
 ```
 
-#### **GET /problem-categories/<id>**
+#### **GET /problem-categories/(id)**
 ##### **Получить категорию проблем по ID**
 
 Response result 200
@@ -1221,7 +1221,7 @@ Response result 200
   "updated_at": "2022-01-01 12:00:00"
 }
 ```
-#### **PUT /problem-categories/<id> (token required)**
+#### **PUT /problem-categories/(id) (token required)**
 ##### **Редактировать категорию проблем пользователя по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -1256,7 +1256,7 @@ Response result 200
 }
 ```
 
-#### **DELETE /problem-categories/<id> (token required)**
+#### **DELETE /problem-categories/(id) (token required)**
 ##### **Удалить категорию проблем по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -1311,7 +1311,7 @@ Response result 200
   "updated_at": "2022-01-01 12:00:00"
 }
 ```
-#### **GET /problem-categories/<id>/active-requests**
+#### **GET /problem-categories/(id)/active-requests**
 ##### **Списки активных заявок категорий проблем по ID**
 
 url params:
@@ -1352,7 +1352,7 @@ Response result 200
   ]
 ```
 
-#### **GET /problem-categories/<id>/archive-requests**
+#### **GET /problem-categories/(id)/archive-requests**
 ##### **Списки архивных заявок категорий проблем по ID**
 
 url params:
@@ -1393,7 +1393,7 @@ Response result 200
   ]
 ```
 
-#### **GET /problem-categories/<id>/completed-requests**
+#### **GET /problem-categories/(id)/completed-requests**
 ##### **Списки выполненных заявок категорий проблем по ID**
 
 url params:
