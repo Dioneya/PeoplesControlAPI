@@ -2,7 +2,7 @@
 
 Компоненты API для приложения "Народный Контроль". Данное API было разработано с помощью Python 3.8 и Flask 1.1.2.
 
-## Установка API
+## **Установка API**
 
 1. Клонировать компоненты репозитория в удобное для вас место.
 2. Создать вирутальное окружение с помощью virtualenv.
@@ -39,7 +39,7 @@
     bot_token = 'UR_BOT_TOKEN'
 ```
 
-## Запуск API
+## **Запуск API**
 1. Переходим в виртуально окружение
 ```python
     source ./ИМЯ_ВИРТ_ОКРУЖЕНИЯ/bin/activate # пример для linux
@@ -60,11 +60,11 @@
     gunicorn --bind адрес:порт api:app
 ```
 
-## Список доступных роутов
+## **Список доступных роутов**
 
-### Авторизация
-#### POST /auth/login
-##### Авторизация пользователя в системе
+### **Авторизация**
+#### **POST /auth/login**
+##### **Авторизация пользователя в системе**
 -H: "Content-type":"application/json"
 
 Request Body
@@ -83,12 +83,12 @@ Response result 200
 }
 ```
 
-#### POST /auth/logout  (token required)
-##### Выход пользователя из системы
+#### **POST /auth/logout  (token required)**
+##### **Выход пользователя из системы**
 
 
-#### POST /auth/refreshtoken  (refresh token required)
-##### Обновить токены пользователя
+#### **POST /auth/refreshtoken  (refresh token required)**
+##### **Обновить токены пользователя**
 
 Response result 200
 ```JSON
@@ -99,8 +99,8 @@ Response result 200
 }
 ```
 
-#### POST /auth/signup
-##### Регистрация нового пользователя
+#### **POST /auth/signup**
+##### **Регистрация нового пользователя**
 
 -H: "Content-type":"application/json"
 
@@ -112,7 +112,7 @@ Request Body
   "password": "string"
 }
 ```
-### Сервесные методы
+### **Сервесные методы**
 
 
 
