@@ -62,4 +62,57 @@
 
 ## Список доступных роутов
 
-#### GET /auth/login <span style="color:red;">token required</span>
+### Авторизация
+#### POST /auth/login
+##### Авторизация пользователя в системе
+-H: "Content-type":"application/json"
+
+Request Body
+```JSON
+{
+  "username": "0711234444",
+  "password": "string"
+}
+```
+Response result 200
+```JSON
+{
+  "accessToken": "ACCESS_TOKEN",
+  "refreshToken": "REFRESH_TOKEN",
+  "tokenType": "Bearer"
+}
+```
+
+#### POST /auth/logout  (token required)
+##### Выход пользователя из системы
+
+
+#### POST /auth/refreshtoken  (refresh token required)
+##### Обновить токены пользователя
+
+Response result 200
+```JSON
+{
+  "accessToken": "ACCESS_TOKEN",
+  "refreshToken": "REFRESH_TOKEN",
+  "tokenType": "Bearer"
+}
+```
+
+#### POST /auth/signup
+##### Регистрация нового пользователя
+
+-H: "Content-type":"application/json"
+
+Request Body
+```JSON
+{
+  "name": "Олег",
+  "username": "0711234444",
+  "password": "string"
+}
+```
+### Сервесные методы
+
+
+
