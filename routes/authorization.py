@@ -23,7 +23,7 @@ def login():
                 "code": 400
             }),400
 
-        access_token = create_access_token(identity=res.id, fresh=True,expires_delta=datetime.timedelta(minutes=60))
+        access_token = create_access_token(identity=res.id, fresh=True)
         refresh_token = create_refresh_token(identity=res.id)
         
         return jsonify({
@@ -62,7 +62,7 @@ def refresh_token():
         api.db.session.add(api.TokenBlocklist(jti=jti, created_at=now))
         api.db.session.commit()
 
-        access_token = create_access_token(identity=res.id, fresh=True,expires_delta=datetime.timedelta(minutes=60))
+        access_token = create_access_token(identity=id, fresh=True)
         new_refresh_token = create_refresh_token(identity=id)
 
         return jsonify({

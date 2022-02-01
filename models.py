@@ -386,7 +386,7 @@ class Contractors(db.Model):
             "public_website": self.web_site_link,
             "more_info": self.additional_information,
             "type":self.type,
-            "schedule": json.loads(self.work_schedule),
+            "schedule": json.loads(self.work_schedule if self.work_schedule is not None else "[]"),
             "problem_categories": [ _.categories_contracts.json_view() for _ in self.problems ],
             "is_active": self.is_visible,
             "generate_daily_report": self.is_generate_daily_report,
