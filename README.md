@@ -79,3 +79,7 @@
     gunicorn --bind адрес:порт api:app
     </code>
 </pre>
+
+## Список доступных роутов
+
+#### GET /auth/login <span style="color:red;">token required</span>
