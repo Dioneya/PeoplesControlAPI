@@ -772,7 +772,7 @@ Response result 200
 }
 ```
 
-#### **POST /roles/<id>**
+#### **POST /roles**
 ##### **Создать роль пользователя по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
@@ -1016,8 +1016,8 @@ Response result 200
 }
 ```
 
-#### **DELETE /roles/<id>**
-##### **Удалить роль пользователя по ID**
+#### **DELETE /contractors/<id>**
+##### **Удалить исполнительного органа по ID**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
 
@@ -1073,8 +1073,8 @@ Response result 200
 }
 ```
 
-#### **POST /roles/<id>**
-##### **Создать роль пользователя по ID**
+#### **POST /contractors**
+##### **Создать нового исолнительного органа**
 
 (МОЖЕТ ТОЛЬКО АДМИН)
 
@@ -1158,4 +1158,278 @@ Response result 200
   "created_at": "2022-01-01 12:00:00",
   "updated_at": "2022-01-01 12:00:00"
 }
+```
+
+### **Категории проблем**
+#### **GET /problem-categories**
+##### **Списки категорий проблем**
+
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+        "id": 1,
+        "title": "Яма на дороге",
+        "mnemonic_name": "yama_na_doroge",
+        "hash_tag": "#дорожное_движение",
+        "icon": "https://test.com/123.jpg",
+        "rating": 10,
+        "is_active": true,
+        "is_visible": true,
+        "deleted_at": "2022-01-01 12:00:00",
+        "created_at": "2022-01-01 12:00:00",
+        "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
+```
+
+#### **GET /problem-categories/<id>**
+##### **Получить категорию проблем по ID**
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+#### **PUT /problem-categories/<id> (token required)**
+##### **Редактировать категорию проблем пользователя по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true
+}
+```
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **DELETE /problem-categories/<id> (token required)**
+##### **Удалить категорию проблем по ID**
+
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **POST /problem-categories (token required)**
+##### **Создать категорию проблем**
+(МОЖЕТ ТОЛЬКО АДМИН)
+
+Request body
+```JSON
+{
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true
+}
+```
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "title": "Яма на дороге",
+  "mnemonic_name": "yama_na_doroge",
+  "hash_tag": "#дорожное_движение",
+  "icon": "https://test.com/123.jpg",
+  "rating": 10,
+  "is_active": true,
+  "is_visible": true,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+#### **GET /problem-categories/<id>/active-requests**
+##### **Списки активных заявок категорий проблем по ID**
+
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+        "id": 1,
+        "title": "Яма на дороге",
+        "mnemonic_name": "yama_na_doroge",
+        "hash_tag": "#дорожное_движение",
+        "icon": "https://test.com/123.jpg",
+        "rating": 10,
+        "is_active": true,
+        "is_visible": true,
+        "deleted_at": "2022-01-01 12:00:00",
+        "created_at": "2022-01-01 12:00:00",
+        "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
+```
+
+#### **GET /problem-categories/<id>/archive-requests**
+##### **Списки архивных заявок категорий проблем по ID**
+
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+        "id": 1,
+        "title": "Яма на дороге",
+        "mnemonic_name": "yama_na_doroge",
+        "hash_tag": "#дорожное_движение",
+        "icon": "https://test.com/123.jpg",
+        "rating": 10,
+        "is_active": true,
+        "is_visible": true,
+        "deleted_at": "2022-01-01 12:00:00",
+        "created_at": "2022-01-01 12:00:00",
+        "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
+```
+
+#### **GET /problem-categories/<id>/completed-requests**
+##### **Списки выполненных заявок категорий проблем по ID**
+
+url params:
+
+page - (integer) номер страницы результата.
+size - (integer) количество выводимых записей результата на страницу.
+
+Response result 200
+```JSON
+{
+  "links": {
+    "first": "http://localhost:8000/api/{method_name}?page=1",
+    "last": "http://localhost:8000/api/{method_name}?page=1",
+    "prev": "http://localhost:8000/api/{method_name}?page=1",
+    "next": "http://localhost:8000/api/{method_name}?page=1"
+  },
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "path": "http://localhost:8000/api/{method_name}",
+  "per_page": 30,
+  "to": 1,
+  "total": 10,
+  "data": [
+    {
+        "id": 1,
+        "title": "Яма на дороге",
+        "mnemonic_name": "yama_na_doroge",
+        "hash_tag": "#дорожное_движение",
+        "icon": "https://test.com/123.jpg",
+        "rating": 10,
+        "is_active": true,
+        "is_visible": true,
+        "deleted_at": "2022-01-01 12:00:00",
+        "created_at": "2022-01-01 12:00:00",
+        "updated_at": "2022-01-01 12:00:00"
+    }
+  ]
 ```
