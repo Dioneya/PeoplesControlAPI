@@ -154,20 +154,12 @@ Response result 200
 ### **Профили пользователей**
 #### **GET /profiles (token required)**
 ##### **Список профилей**
-
+(СПИСОК МОЖЕТ ПОЛУЧИТЬ ТОЛЬКО АДМИНЫ)
 url params:
 
 page - (integer) номер страницы результата.
 size - (integer) количество выводимых записей результата на страницу.
 
--H: "Content-type":"application/json"
-
-Request Body
-```JSON
-{
-  "address": "г. Донецк, пр. Киевский, 28"
-}
-```
 Response result 200
 ```JSON
 {
@@ -278,3 +270,409 @@ Response result 200
   ]
 }
 ```
+
+
+#### **GET /profiles/<id> (token required)**
+##### **Получить профиль по ID профиля**
+ДОСТУП МОЖЕТ ЛИШЬ ПОЛУЧИТЬ ВЛАДЕЛЕЦ ПРОФИЛЯ ИЛИ АДМИНЫ
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "user_id": 1,
+  "full_name": "Алексей Алексеевич Алексеев",
+  "location": "Донецк, Куйбышевский район",
+  "phone": "07143200000",
+  "rating": 1023,
+  "email": "test@test.com",
+  "requests": [
+    {
+      "id": 1,
+      "parent_request_id": 1,
+      "description": "Бродячие собаки",
+      "source": "ANDROID",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "location": "г. Донецк, пр. Труда, 23",
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "base_rating": 613,
+      "rating": 613,
+      "watch_count": 613,
+      "status": "IN PROCESSING",
+      "attachments": [],
+      "stored_profile_data": {
+        "full_name": "Алексей Алексеевич Алексеев",
+        "location": "Донецк, Куйбышевский район",
+        "phone": "07143200000",
+        "rating": 1023,
+        "email": "test@test.com"
+      },
+      "request_consideration_at": "2022-02-03 13:00:00",
+      "begin_request_execution_at": "2022-02-03 13:00:00",
+      "complete_request_execution_at": "2022-02-03 13:00:00",
+      "request_status_checked_at": "2022-02-03 13:00:00",
+      "is_moderated": true,
+      "moderator_id": 1,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "stored_requests": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "description": "Описание заявки",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "attachments": [],
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_notification_email": true,
+  "is_notification_sms": true,
+  "is_anonymous_requests": false,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **GET /profile (token required)**
+##### **Получить профиль пользователя по id токена**
+Response result 200
+```JSON
+{
+  "id": 1,
+  "user_id": 1,
+  "full_name": "Алексей Алексеевич Алексеев",
+  "location": "Донецк, Куйбышевский район",
+  "phone": "07143200000",
+  "rating": 1023,
+  "email": "test@test.com",
+  "requests": [
+    {
+      "id": 1,
+      "parent_request_id": 1,
+      "description": "Бродячие собаки",
+      "source": "ANDROID",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "location": "г. Донецк, пр. Труда, 23",
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "base_rating": 613,
+      "rating": 613,
+      "watch_count": 613,
+      "status": "IN PROCESSING",
+      "attachments": [],
+      "stored_profile_data": {
+        "full_name": "Алексей Алексеевич Алексеев",
+        "location": "Донецк, Куйбышевский район",
+        "phone": "07143200000",
+        "rating": 1023,
+        "email": "test@test.com"
+      },
+      "request_consideration_at": "2022-02-03 13:00:00",
+      "begin_request_execution_at": "2022-02-03 13:00:00",
+      "complete_request_execution_at": "2022-02-03 13:00:00",
+      "request_status_checked_at": "2022-02-03 13:00:00",
+      "is_moderated": true,
+      "moderator_id": 1,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "stored_requests": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "description": "Описание заявки",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "attachments": [],
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_notification_email": true,
+  "is_notification_sms": true,
+  "is_anonymous_requests": false,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+#### **PUT /profiles/<id> (token required)**
+##### **Изменить профиль по ID профиля**
+ДОСТУП МОЖЕТ ЛИШЬ ПОЛУЧИТЬ ВЛАДЕЛЕЦ ПРОФИЛЯ ИЛИ АДМИНЫ
+
+-H: "Content-type":"application/json"
+
+Request Body
+```JSON
+{
+  "user_id": 1,
+  "full_name": "Алексей Алексеевич Алексеев",
+  "location": "Донецк, Куйбышевский район",
+  "phone": "07143200000",
+  "email": "test@test.com",
+  "is_notification_email": true,
+  "is_notification_sms": true,
+  "is_anonymous_requests": false
+}
+```
+Response result 200
+```JSON
+{
+  "id": 1,
+  "user_id": 1,
+  "full_name": "Алексей Алексеевич Алексеев",
+  "location": "Донецк, Куйбышевский район",
+  "phone": "07143200000",
+  "rating": 1023,
+  "email": "test@test.com",
+  "requests": [
+    {
+      "id": 1,
+      "parent_request_id": 1,
+      "description": "Бродячие собаки",
+      "source": "ANDROID",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "location": "г. Донецк, пр. Труда, 23",
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "base_rating": 613,
+      "rating": 613,
+      "watch_count": 613,
+      "status": "IN PROCESSING",
+      "attachments": [],
+      "stored_profile_data": {
+        "full_name": "Алексей Алексеевич Алексеев",
+        "location": "Донецк, Куйбышевский район",
+        "phone": "07143200000",
+        "rating": 1023,
+        "email": "test@test.com"
+      },
+      "request_consideration_at": "2022-02-03 13:00:00",
+      "begin_request_execution_at": "2022-02-03 13:00:00",
+      "complete_request_execution_at": "2022-02-03 13:00:00",
+      "request_status_checked_at": "2022-02-03 13:00:00",
+      "is_moderated": true,
+      "moderator_id": 1,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "stored_requests": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "description": "Описание заявки",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "attachments": [],
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_notification_email": true,
+  "is_notification_sms": true,
+  "is_anonymous_requests": false,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
+#### **DELETE /profiles/<id> (token required)**
+##### **Удалить профиль пользователя по id токена**
+ДОСТУП МОЖЕТ ПОЛЧИТЬ ТОЛЬКО ВЛАДЕЮЩИЙ ПРОФИЛЕМ ПОЛЬЗОВАТЕЛЬ ИЛИ АДМИНЫ
+
+Response result 200
+```JSON
+{
+  "id": 1,
+  "user_id": 1,
+  "full_name": "Алексей Алексеевич Алексеев",
+  "location": "Донецк, Куйбышевский район",
+  "phone": "07143200000",
+  "rating": 1023,
+  "email": "test@test.com",
+  "requests": [
+    {
+      "id": 1,
+      "parent_request_id": 1,
+      "description": "Бродячие собаки",
+      "source": "ANDROID",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "location": "г. Донецк, пр. Труда, 23",
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "base_rating": 613,
+      "rating": 613,
+      "watch_count": 613,
+      "status": "IN PROCESSING",
+      "attachments": [],
+      "stored_profile_data": {
+        "full_name": "Алексей Алексеевич Алексеев",
+        "location": "Донецк, Куйбышевский район",
+        "phone": "07143200000",
+        "rating": 1023,
+        "email": "test@test.com"
+      },
+      "request_consideration_at": "2022-02-03 13:00:00",
+      "begin_request_execution_at": "2022-02-03 13:00:00",
+      "complete_request_execution_at": "2022-02-03 13:00:00",
+      "request_status_checked_at": "2022-02-03 13:00:00",
+      "is_moderated": true,
+      "moderator_id": 1,
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "stored_requests": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "description": "Описание заявки",
+      "problem_categories": [
+        {
+          "id": 1,
+          "title": "Яма на дороге",
+          "mnemonic_name": "yama_na_doroge",
+          "hash_tag": "#дорожное_движение",
+          "icon": "https://test.com/123.jpg",
+          "rating": 10,
+          "is_active": true,
+          "is_visible": true,
+          "deleted_at": "2022-01-01 12:00:00",
+          "created_at": "2022-01-01 12:00:00",
+          "updated_at": "2022-01-01 12:00:00"
+        }
+      ],
+      "latitude": 23.2334444,
+      "longitude": 45.7889111,
+      "attachments": [],
+      "deleted_at": "2022-01-01 12:00:00",
+      "created_at": "2022-01-01 12:00:00",
+      "updated_at": "2022-01-01 12:00:00"
+    }
+  ],
+  "is_notification_email": true,
+  "is_notification_sms": true,
+  "is_anonymous_requests": false,
+  "deleted_at": "2022-01-01 12:00:00",
+  "created_at": "2022-01-01 12:00:00",
+  "updated_at": "2022-01-01 12:00:00"
+}
+```
+
