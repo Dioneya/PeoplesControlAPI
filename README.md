@@ -60,7 +60,7 @@
     gunicorn --bind адрес:порт api:app
 ```
 
-## **Пример оповещения телграмм ботом о новой заявке*
+## **Пример оповещения телграмм ботом о новой заявке**
 ![alt text](https://downloader.disk.yandex.ru/preview/34df27b574967318392b4411f1e11b00f34649f120f0c428b05bf63bc94d5686/61f9b418/G51uF9dCCNfyje_Ek4vepKQ59zbHdVGX_wLfu55EAaeXQjMMUgHAXASugJQOcsd14erBjRRffHtKtR97CaNl3A%3D%3D?uid=0&filename=RRtrscyBxaM%20%281%29.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048)
 
 
